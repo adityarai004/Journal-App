@@ -32,7 +32,7 @@ public class SignUpActivity extends AppCompatActivity {
     EditText signUpPasswordET,signUpEmailET,signUpUsernameET;
     Button signUpBTN;
 
-    //Firebase authen
+    //Firebase authentication
     private FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
     private FirebaseUser currentUser;
