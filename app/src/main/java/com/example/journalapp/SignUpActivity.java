@@ -111,6 +111,13 @@ public class SignUpActivity extends AppCompatActivity {
                                             if(Objects.requireNonNull(task.getResult().exists())){
                                                 String name = task.getResult().getString("username");
                                                 //if user is registered successfully then move to AddJournalActivity
+
+                                                //below 3 line of code is for singleton
+                                                JournalUser journalUser = new JournalUser();
+                                                journalUser.setUserId(currentUserId);
+                                                journalUser.setUsername(name);
+
+
                                                 Intent i = new Intent(SignUpActivity.this,AddJournalActivity.class);
                                                 i.putExtra("username", name);
                                                 i.putExtra("userId", currentUserId);
