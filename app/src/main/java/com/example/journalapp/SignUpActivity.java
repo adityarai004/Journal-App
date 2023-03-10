@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.journalapp.util.JournalUser;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -95,7 +96,7 @@ public class SignUpActivity extends AppCompatActivity {
                         //we will take user to next activity : (Add Journal Activity)
                         currentUser = firebaseAuth.getCurrentUser();
                         assert currentUser != null;
-                        final String currentUserId = currentUser.getUid();
+                        String currentUserId = currentUser.getUid();
 
                         Map<String,String> userObj = new HashMap<>();
                         userObj.put("userId", currentUserId);
@@ -113,7 +114,7 @@ public class SignUpActivity extends AppCompatActivity {
                                                 //if user is registered successfully then move to AddJournalActivity
 
                                                 //below 3 line of code is for singleton
-                                                JournalUser journalUser = new JournalUser();
+                                                JournalUser journalUser = JournalUser.getInstance();
                                                 journalUser.setUserId(currentUserId);
                                                 journalUser.setUsername(name);
 
