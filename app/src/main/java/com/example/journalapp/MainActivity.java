@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     FirebaseUser user = firebaseAuth.getCurrentUser();
+
                     assert user != null;
                     final String currentUserId = user.getUid();
 
@@ -103,12 +105,24 @@ public class MainActivity extends AppCompatActivity {
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(MainActivity.this, "Something went wrong" + e, Toast.LENGTH_SHORT).show();
+                    FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                    Log.i("TAG", user.getUid());
+                    Toast.makeText(MainActivity.this, "" + e, Toast.LENGTH_SHORT).show();
                 }
             });
         }
         else{
             Toast.makeText(this, "fields cannot be empty", Toast.LENGTH_SHORT).show();
+        }
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+        if(currentUser != null){
+            currentUser.reload();
         }
     }
 }
