@@ -75,7 +75,6 @@ public class AddJournalActivity extends AppCompatActivity {
         if(JournalUser.getInstance() != null){
             currentUserId = JournalUser.getInstance().getUserId();
             currentUsername = JournalUser.getInstance().getUsername();
-            Log.i("TAG", currentUserId + "        " + currentUsername);
             postUsernameTV.setText(currentUsername);
         }
 

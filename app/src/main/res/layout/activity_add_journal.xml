@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddJournalActivity"
-    android:background="@drawable/graident_add_journal">
+    android:background="@drawable/gradient_add_journal">
 
     <ImageView
         android:layout_width="match_parent"

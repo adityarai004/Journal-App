@@ -102,7 +102,7 @@ public class SignUpActivity extends AppCompatActivity {
                         userObj.put("userId", currentUserId);
                         userObj.put("username", username);
 
-                        //Adding users to firestore
+                        //Adding users to FireStore
                         collectionReference.add(userObj).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {

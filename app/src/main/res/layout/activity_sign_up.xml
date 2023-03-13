@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/graident_add_journal"
+    android:background="@drawable/gradient_add_journal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUpActivity">
@@ -55,6 +55,7 @@
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:textColor="#000000"
+            android:textColorHint="@color/black"
             android:padding="10dp"/>
     </RelativeLayout>
 
@@ -73,6 +74,7 @@
             android:hint="Password"
             android:inputType="textPassword"
             android:textSize="20dp"
+            android:textColorHint="@color/black"
             android:layout_marginLeft="10dp"
             android:textColor="#000000"
             android:padding="10dp"/>
@@ -92,6 +94,7 @@
                 android:id="@+id/signUpUsernameET"
                 android:hint="Username"
                 android:textSize="20dp"
+                android:textColorHint="@color/black"
                 android:layout_marginLeft="10dp"
                 android:textColor="#000000"
                 android:padding="10dp"/>
