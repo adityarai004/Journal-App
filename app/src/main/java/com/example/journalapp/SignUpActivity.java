@@ -88,7 +88,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void CreateNewUser(String email, String password,final String username) {
-        if(!TextUtils.isEmpty(signUpEmailET.getText().toString()) && !TextUtils.isEmpty(signUpPasswordET.getText().toString())){
+        if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password) && !TextUtils.isEmpty(username)){
             firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {

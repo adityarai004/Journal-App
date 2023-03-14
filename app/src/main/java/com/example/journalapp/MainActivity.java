@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Firebase connection
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference collectionReference = FirebaseFirestore.getInstance().collection("Users");
+    private CollectionReference collectionReference = db.collection("Users");
 
 
     @Override
@@ -105,24 +105,12 @@ public class MainActivity extends AppCompatActivity {
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    FirebaseUser user = firebaseAuth.getCurrentUser();
-
-                    Log.i("TAG", user.getUid());
                     Toast.makeText(MainActivity.this, "" + e, Toast.LENGTH_SHORT).show();
                 }
             });
         }
         else{
             Toast.makeText(this, "fields cannot be empty", Toast.LENGTH_SHORT).show();
-        }
-    }
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = firebaseAuth.getCurrentUser();
-        if(currentUser != null){
-            currentUser.reload();
         }
     }
 }
